@@ -10,7 +10,13 @@ from setuptools import setup
 setup(name='RapidML',
       version='0.1',
       description='Automated Machine Learning Model Creation, with corresponding model access via cloud through API',
-      url='',
+      url='https://github.com/ritabratamaiti/RapidML',
+      long_description = '''
+      This is a python tool that determines the best machine learing model using genetic programming, and then subsequently produces an API and saves models for further use.
+      Contact me for further queries.
+      Email: ritabratamaiti@hiretrex.com
+      Twitter: https://twitter.com/ritabratamaiti
+      ''',
       author='Ritabrata Maiti',
       author_email='ritabratamaiti@hiretrex.com',
       license='',

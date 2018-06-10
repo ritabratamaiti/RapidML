@@ -16,17 +16,16 @@ d = defaultdict(LabelEncoder)
 X = []
 Y = []
 
-def rapid_classifier(df,g=5,p=50,v=2):
+def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=50, verbosity=2)):
     #Labelencoding the table
-    
+    df2 = df.values
+    df_empty = df[0:0]
     fit = df.apply(lambda x: d[x.name].fit_transform(x))
     df = fit.values
     
     #getting X and Y, for training the classifier
     X = df[:, :(df.shape[1]-1)]
     Y = df[:, df.shape[1]-1]
-    
-    clf = TPOTClassifier(generations=5, population_size=50, verbosity=2)
     
     newpath = r'webml' 
     if not os.path.exists(newpath):
@@ -43,9 +42,9 @@ def rapid_classifier(df,g=5,p=50,v=2):
     dill_file.close()
     
     #training and pickling the classifier
-    clf.fit(X, Y)
-    dill_file = open("webml/clf", "wb") 
-    dill_file.write(dill.dumps(clf.fitted_pipeline_))
+    model.fit(X, Y)
+    dill_file = open("webml/model", "wb") 
+    dill_file.write(dill.dumps(model.fitted_pipeline_))
     dill_file.close()
     
     dill_file = open("webml/f", "wb")
@@ -114,13 +113,13 @@ def rapid_classifier(df,g=5,p=50,v=2):
         d = fopen("d", "rb")
         df = fopen("df", "rb")
         f = fopen("f", "rb")
-        clf = fopen("clf", "rb")
+        model = fopen("model", "rb")
         l = [int(e) if e.isdigit() else e for e in f.split(',')]
         df.loc[0] = l
         fit = df.apply(lambda x: d[x.name].transform(x))
         df1 = fit.values
         X = df1[:, :(df1.shape[1]-1)]
-        p = clf.predict(X)
+        p = model.predict(X)
         p = d[list(df)[-1]].inverse_transform(p)
         file = open('result.txt','w') 
         file.write(str(p[0]))
@@ -135,7 +134,9 @@ def rapid_classifier(df,g=5,p=50,v=2):
     file.close()
 
 
-def rapid_regressor(df,g=5,p=50,v=2):
+def rapid_regressor(df, model = TPOTRegressor(generations=5, population_size=50, verbosity=2)):
+    df2 = df.values
+    df_empty = df[0:0]    
     #Labelencoding the table
     
     fit = df.apply(lambda x: d[x.name].fit_transform(x))
@@ -145,7 +146,6 @@ def rapid_regressor(df,g=5,p=50,v=2):
     X = df[:, :(df.shape[1]-1)]
     Y = df[:, df.shape[1]-1]
     
-    clf = TPOTRegressor(generations=5, population_size=50, verbosity=2)
     
     newpath = r'webml' 
     if not os.path.exists(newpath):
@@ -162,9 +162,9 @@ def rapid_regressor(df,g=5,p=50,v=2):
     dill_file.close()
     
     #training and pickling the classifier
-    clf.fit(X, Y)
-    dill_file = open("webml/clf", "wb") 
-    dill_file.write(dill.dumps(clf.fitted_pipeline_))
+    model.fit(X, Y)
+    dill_file = open("webml/model", "wb") 
+    dill_file.write(dill.dumps(model.fitted_pipeline_))
     dill_file.close()
     
     dill_file = open("webml/f", "wb")
@@ -233,13 +233,13 @@ def rapid_regressor(df,g=5,p=50,v=2):
         d = fopen("d", "rb")
         df = fopen("df", "rb")
         f = fopen("f", "rb")
-        clf = fopen("clf", "rb")
+        model = fopen("model", "rb")
         l = [int(e) if e.isdigit() else e for e in f.split(',')]
         df.loc[0] = l
         fit = df.apply(lambda x: d[x.name].transform(x))
         df1 = fit.values
         X = df1[:, :(df1.shape[1]-1)]
-        p = clf.predict(X)
+        p = model.predict(X)
         p = d[list(df)[-1]].inverse_transform(p)
         file = open('result.txt','w') 
         file.write(str(p[0]))

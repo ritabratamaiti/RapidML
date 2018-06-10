@@ -67,7 +67,7 @@ def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=5
     
     @app.route('/')
     def home():
-      return "RD_AML, Version: 1.0.0"
+      return "RapidML, Project Version: 1.0.0"
     
     
     @app.route('/query', methods=['GET', 'POST'])
@@ -187,7 +187,7 @@ def rapid_regressor(df, model = TPOTRegressor(generations=5, population_size=50,
     
     @app.route('/')
     def home():
-      return "RD_AML, Version: 1.0.0"
+      return "RapidML, Project Version: 1.0.0"
     
     
     @app.route('/query', methods=['GET', 'POST'])

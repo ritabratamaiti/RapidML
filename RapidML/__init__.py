@@ -48,6 +48,7 @@ def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=5
     dill_file.close()
     
     dill_file = open("webml/f", "wb")
+    print("\nSample Output from input dataframe: ")
     print(','.join(str(e) for e in df2[2]))
     dill_file.write(dill.dumps(','.join(str(e) for e in df2[2])))
     dill_file.close()
@@ -168,6 +169,7 @@ def rapid_regressor(df, model = TPOTRegressor(generations=5, population_size=50,
     dill_file.close()
     
     dill_file = open("webml/f", "wb")
+    print("\nSample Output from input dataframe: ")
     print(','.join(str(e) for e in df2[2]))
     dill_file.write(dill.dumps(','.join(str(e) for e in df2[2])))
     dill_file.close()

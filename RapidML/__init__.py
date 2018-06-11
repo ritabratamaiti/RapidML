@@ -17,6 +17,8 @@ X = []
 Y = []
 
 def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=50, verbosity=2)):
+    if(type(model) != TPOTClassifier):
+        raise ValueError('Error!! Model must be a TPOTClassifier')
     #Labelencoding the table
     df2 = df.values
     df_empty = df[0:0]
@@ -135,19 +137,24 @@ def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=5
     file.close()
 
 
-def rapid_regressor(df, model = TPOTRegressor(generations=5, population_size=50, verbosity=2)):
+def rapid_regressor(df, le='No', model = TPOTRegressor(generations=5, population_size=50, verbosity=2)):
+    if(type(model) != TPOTRegressor):
+        raise ValueError('Error!! Model must be a TPOTRegressor')
     df2 = df.values
-    df_empty = df[0:0]    
-    #Labelencoding the table
+    df_empty = df[0:0]   
     
-    fit = df.apply(lambda x: d[x.name].fit_transform(x))
-    df = fit.values
-    
-    #getting X and Y, for training the classifier
-    X = df[:, :(df.shape[1]-1)]
-    Y = df[:, df.shape[1]-1]
-    
-    
+    if(le == 'Yes'):        
+        #Labelencoding the table
+        fit = df.apply(lambda x: d[x.name].fit_transform(x))
+        df = fit.values
+        
+        #getting X and Y, for training the classifier
+        X = df[:, :(df.shape[1]-1)]
+        Y = df[:, df.shape[1]-1]
+        
+    elif(le == 'No'):
+        print('\nContinuing without label encoding')
+        
     newpath = r'webml' 
     if not os.path.exists(newpath):
         os.makedirs(newpath)
@@ -162,7 +169,7 @@ def rapid_regressor(df, model = TPOTRegressor(generations=5, population_size=50,
     dill_file.write(dill.dumps(df_empty))
     dill_file.close()
     
-    #training and pickling the classifier
+    #training and pickling the regressor
     model.fit(X, Y)
     dill_file = open("webml/model", "wb") 
     dill_file.write(dill.dumps(model.fitted_pipeline_))

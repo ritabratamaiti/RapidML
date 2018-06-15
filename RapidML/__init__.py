@@ -3,14 +3,15 @@
 Created on Sun Jun 10 10:58:51 2018
 @author: Ritabrata Maiti
 """
-import pandas as pd   
+import pandas 
 from sklearn.preprocessing import LabelEncoder
 from collections import defaultdict
 import dill
 from tpot import TPOTClassifier
 from tpot import TPOTRegressor
 import os
-import numpy as np
+import sklearn
+import numpy
 
 d = defaultdict(LabelEncoder)
 X = []
@@ -20,6 +21,7 @@ print("\nRapidML, Version: 0.1, Author: Ritabrata Maiti")
 
 def rapid_classifier(df, model = TPOTClassifier(generations=5, population_size=50, verbosity=2), name = "RapidML_Files"):
     print('\nUsing the RapidML Classifier; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
+    print("Label Encoding is being done....")
     if(type(model) != TPOTClassifier):
         raise ValueError('Error!! Model must be a TPOTClassifier')
     #Labelencoding the table
@@ -82,7 +84,7 @@ def query_example():
     dill_file = open("f", "rb")
     f = dill.load(dill_file)
     dill_file.close()
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
+    l = [float(e) if e.isdigit() else e for e in f.split(',')]
     req = req + ',' + str(l[-1])
     dill_file = open("f", "wb")
     dill_file.write(dill.dumps(req))
@@ -120,7 +122,7 @@ def predictor():
     df = fopen("df", "rb")
     f = fopen("f", "rb")
     model = fopen("model", "rb")
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
+    l = [float(e) if e.isdigit() else e for e in f.split(',')]
     df.loc[0] = l
     fit = df.apply(lambda x: d[x.name].transform(x))
     df1 = fit.values
@@ -152,6 +154,7 @@ def rapid_regressor(df, le='No', model = TPOTRegressor(generations=5, population
     df_empty = df[0:0]   
         
     if(le == 'Yes'):        
+        print("Label Encoding is being done....")
         #Labelencoding the table
         fit = df.apply(lambda x: d[x.name].fit_transform(x))
         df = fit.values
@@ -215,7 +218,7 @@ def query_example():
     dill_file = open("f", "rb")
     f = dill.load(dill_file)
     dill_file.close()
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
+    l = [float(e) if e.isdigit() else e for e in f.split(',')]
     req = req + ',' + str(l[-1])
     dill_file = open("f", "wb")
     dill_file.write(dill.dumps(req))
@@ -253,7 +256,7 @@ def predictor():
     df = fopen("df", "rb")
     f = fopen("f", "rb")
     model = fopen("model", "rb")        
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
+    l = [float(e) if e.isdigit() else e for e in f.split(',')]
     df.loc[0] = l
 
     if(os.path.isfile('d')):
@@ -284,7 +287,7 @@ predictor()
 
 def rapid_regressor_arr(X, Y, model = TPOTRegressor(generations=5, population_size=50, verbosity=2), name="RapidML_Files"):
     
-    print('\nUsing RapidML Regressor with arrays, API and helper modules will not be produced.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
+    print('\nUsing RapidML Regressor with arrays, Inputs will not be label encoded.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
     
     if(type(model) != TPOTRegressor):
         raise ValueError('\nError!! Model must be a TPOTRegressor')
@@ -294,7 +297,43 @@ def rapid_regressor_arr(X, Y, model = TPOTRegressor(generations=5, population_si
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     
+    str1 = '''
+from flask import Flask, request
+import dill
+import numpy as np
+
+app = Flask(__name__)
+app.config["DEBUG"] = True
+
+
+@app.route('/')
+def home():
+  return "RapidML, Project Version: 1.0.0"
+
+
+@app.route('/query', methods=['GET', 'POST'])
+def query_example():
+    req = request.args['ip']
+    dill_file = open("model", "rb")
+    model = dill.load(dill_file)
+    dill_file.close()
+    l = []
+    for e in req.split(","):
+           l.append(float(e))
+           
+    res = model.predict(np.reshape(l, (1,-1)))
+    l = []
+    return str(res[0])
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
+         
+    '''
     
+    file = open(name+"/API.py", "w")
+    file.write(str1)
+    file.close()
+
     
     #training and pickling the regressor
     model.fit(X, Y)
@@ -308,7 +347,7 @@ def rapid_regressor_arr(X, Y, model = TPOTRegressor(generations=5, population_si
 
 def rapid_classifier_arr(X, Y, model = TPOTRegressor(generations=5, population_size=50, verbosity=2), name="RapidML_Files"):
     
-    print('\nUsing RapidML Classifier with arrays, API and helper modules will not be produced.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
+    print('\nUsing RapidML Classifier with arrays, Inputs will not be label encoded.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
     
     if(type(model) != TPOTClassifier):
         raise ValueError('\nError!! Model must be a TPOTClassifier')
@@ -318,8 +357,43 @@ def rapid_classifier_arr(X, Y, model = TPOTRegressor(generations=5, population_s
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     
+    str1 = '''
+from flask import Flask, request
+import dill
+import numpy as np
+
+app = Flask(__name__)
+app.config["DEBUG"] = True
+
+
+@app.route('/')
+def home():
+  return "RapidML, Project Version: 1.0.0"
+
+
+@app.route('/query', methods=['GET', 'POST'])
+def query_example():
+    req = request.args['ip']
+    dill_file = open("model", "rb")
+    model = dill.load(dill_file)
+    dill_file.close()
+    l = []
+    for e in req.split(","):
+           l.append(float(e))
+           
+    res = model.predict(np.reshape(l, (1,-1)))
+    l = []
+    return str(res[0])
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
+       
+    '''
     
-    
+    file = open(name+"/API.py", "w")
+    file.write(str1)
+    file.close()
+  
     #training and pickling the classifier
     model.fit(X, Y)
     dill_file = open(name+"/model", "wb") 
@@ -329,15 +403,16 @@ def rapid_classifier_arr(X, Y, model = TPOTRegressor(generations=5, population_s
        
     return(model.fitted_pipeline_)
     
-def rapid_udm(df, model, le='No'):
+def rapid_udm(df, model, le='No', name="RapidML_Files"):
     
-    print('\nRapidML User Defined Models, note that the model provided by the user should be a Scikit_learn model and not a TPOT object.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
+    print('\nRapidML User Defined Models, note that the model provided by the user should be a Scikit-Learn model or should work similarly to one.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
     
     df2 = df.values
     df_empty = df[0:0]   
         
     if(le == 'Yes'):        
         #Labelencoding the table
+        print("Label Encoding is being done....")
         fit = df.apply(lambda x: d[x.name].fit_transform(x))
         df = fit.values
         #pickling the dictionary d
@@ -377,13 +452,9 @@ def rapid_udm(df, model, le='No'):
     dill_file.close()
     
     str1 = '''
-#RD_AML created by Ritabrata Maiti
-#Version: 1.0.0
-
 from flask import Flask, request
 import dill
-import helper
-
+import numpy as np
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -397,22 +468,19 @@ def home():
 @app.route('/query', methods=['GET', 'POST'])
 def query_example():
     req = request.args['ip']
-    dill_file = open("f", "rb")
-    f = dill.load(dill_file)
+    dill_file = open("model", "rb")
+    model = dill.load(dill_file)
     dill_file.close()
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
-    req = req + ',' + str(l[-1])
-    dill_file = open("f", "wb")
-    dill_file.write(dill.dumps(req))
-    dill_file.close()
-    helper.predictor()
-    file = open('result.txt','r') 
-    res = file.read()
-    file.close()
-    return res
+    l = []
+    for e in req.split(","):
+           l.append(float(e))
+           
+    res = model.predict(np.reshape(l, (1,-1)))
+    l = []
+    return str(res[0])
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)
     '''
     
     file = open(name+"/API.py", "w")
@@ -438,7 +506,7 @@ def predictor():
     df = fopen("df", "rb")
     f = fopen("f", "rb")
     model = fopen("model", "rb")        
-    l = [int(e) if e.isdigit() else e for e in f.split(',')]
+    l = [float(e) if e.isdigit() else e for e in f.split(',')]
     df.loc[0] = l
 
     if(os.path.isfile('d')):
@@ -466,23 +534,50 @@ predictor()
     
     return(model)
 
-def rapid_udm_arr(X, Y, model):
+def rapid_udm_arr(X, Y, model, name="RapidML_Files"):
     
-    print('\nRapidML User Defined Models, note that the model provided by the user should be a Scikit_learn model and not a TPOT object.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
-    
-        
-    #getting X and Y, for training the classifier
-    
-    X = df[:, :(df.shape[1]-1)]
-    Y = df[:, df.shape[1]-1]
-    
-        
+    print('\nRapidML User Defined Models, Inputs will not be label encoded; note that the model provided by the user should be a Scikit_learn model and not a TPOT object.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com')
+             
     newpath = name
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     
+    str1 = '''
+from flask import Flask, request
+import dill
+import numpy as np
+
+app = Flask(__name__)
+app.config["DEBUG"] = True
+
+
+@app.route('/')
+def home():
+  return "RapidML, Project Version: 1.0.0"
+
+
+@app.route('/query', methods=['GET', 'POST'])
+def query_example():
+    req = request.args['ip']
+    dill_file = open("model", "rb")
+    model = dill.load(dill_file)
+    dill_file.close()
+    l = []
+    for e in req.split(","):
+           l.append(float(e))
+           
+    res = model.predict(np.reshape(l, (1,-1)))
+    l = []
+    return str(res[0])
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
+    '''
     
-    
+    file = open(name+"/API.py", "w")
+    file.write(str1)
+    file.close()
+  
     #training and pickling the model
     model.fit(X, Y)
     dill_file = open(name+"/model", "wb") 

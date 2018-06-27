@@ -4,6 +4,8 @@
 Examples
 ============
 
+Note that all the IPython notebooks used in the example are available here: https://github.com/ritabratamaiti/RapidML/tree/master/Examples
+
 ****************************************
 ASD (Autism Spectrum Disorder) Detection
 ****************************************

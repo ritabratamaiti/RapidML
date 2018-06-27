@@ -1,9 +1,11 @@
-Welcome to RapidML's documentation!
+Welcome to RapidML!
 ===================================
 <p align="center">
 <img src="logo.png">
 </p>
- 
+
+Read RapidML documentation here: https://ritabratamaiti.github.io/RapidML
+
 What is **RapidML**?
 
 Well, RapidML is your Smart Machine Learning assistant that not only

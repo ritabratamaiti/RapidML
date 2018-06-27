@@ -1,0 +1,8 @@
+Examples
+=========
+
+This file contains the IPython notebooks used in the examples sections [Boston House Prices](https://ritabratamaiti.github.io/RapidML/build/html/Examples.html#boston-house-prices) and [Using RapidML to build a neural network (For recognizing hand-written digits)](https://ritabratamaiti.github.io/RapidML/build/html/Examples.html#using-rapidml-to-build-a-neural-network-for-recognizing-hand-written-digits) in the RapidML documentaion.
+Feel free to play around and tweak the models as per your requirements.
+
+For [ASD (Autism Spectrum Disorder) Detection](https://ritabratamaiti.github.io/RapidML/build/html/Examples.html#asd-autism-spectrum-disorder-detection)
+check out the [project](https://github.com/ritabratamaiti/Autism-Detection-API) and the corresponding [IPython notebook](https://github.com/ritabratamaiti/Autism-Detection-API/blob/master/RapidML_ASD_Prediction.ipynb).

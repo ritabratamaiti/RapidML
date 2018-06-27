@@ -1,0 +1,33 @@
+Welcome to RapidML's documentation!
+===================================
+
+<img src="logo.png" class="align-center" />
+
+What is **RapidML**?
+
+Well, RapidML is your Smart Machine Learning assistant that not only
+automates the creation of machine learning models but also enables you
+to easily deploy the models to the cloud.
+
+![(Click to enlarge)]
+
+RapidML is perfect for Python programmers at all levels, ranging from
+beginners who want to get into Data Science and Machine Learning to
+intermediate and advanced programmers who want to bring Machine Learning
+to consumer and industry usage applications.
+
+Apart from making predictions in Python, RapidML models can be exported
+as Web APIs to develop Machine Learning applications in a wide variety
+of platforms, such as Javascript, Android, iOS.... **and almost
+everything else which can make and receive web requests**!
+
+install Using RapidML RapidML API Examples support Contributing
+
+Indices and tables
+==================
+
+-   <span role="ref">genindex</span>
+-   <span role="ref">modindex</span>
+-   <span role="ref">search</span>
+
+  [(Click to enlarge)]: RapidMLChart1.png

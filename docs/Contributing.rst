@@ -12,7 +12,7 @@ The preferred way to modify RapidML source is to fork the repository_ and submit
 
 Areas of improvement:
 
-* Implementing an elegant way of building reStructured Text documentation using Sphinx. The current method involves building the HTML files in the ``docsource`` directory and then transferring the HTML files to the ``docs`` directory.
+* Implementing an elegant way of building reStructured Text documentation using Sphinx. The current method involves building the HTML files in the ``docsource`` directory and then using a redirection index to point to the actual index.
 
 * Improve helper tips within RapidML functions.
 

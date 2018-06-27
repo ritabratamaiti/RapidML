@@ -9,6 +9,8 @@ Welcome to RapidML's documentation!
 .. figure:: logo.png
     :align: center
 
+Getting started is as easy as ``pip install RapidML``
+
 What is **RapidML**?
 
 Well, RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud.

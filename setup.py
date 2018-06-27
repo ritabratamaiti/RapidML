@@ -8,14 +8,25 @@ Created on Sun Jun 10 11:23:02 2018
 from setuptools import setup
 
 setup(name='RapidML',
-      version='0.1',
-      description='Automated Machine Learning Model Creation, with corresponding model access via cloud through API',
+      version='1.0.1',
+      description='RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud. Find the documentation at: https://ritabratamaiti.github.io/RapidML',
       url='https://github.com/ritabratamaiti/RapidML',
       long_description = '''
-      This is a python tool that determines the best machine learing model using genetic programming, and then subsequently produces an API and saves models for further use.
-      Contact me for further queries.
-      Email: ritabratamaiti@hiretrex.com
-      Twitter: https://twitter.com/ritabratamaiti
+What is RapidML?
+
+Well, RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud.
+
+RapidML is perfect for Python programmers at all levels, ranging from beginners who want to get into Data Science and Machine Learning to intermediate and advanced programmers who want to bring Machine Learning to consumer and industry usage applications.
+
+Apart from making predictions in Python, RapidML models can be exported as Web APIs to develop Machine Learning applications in a wide variety of platforms, such as Javascript, Android, iOS…. and almost everything else which can make and receive web requests!
+
+Documentation: https://ritabratamaiti.github.io/RapidML
+
+Email: ritabratamaiti@hiretrex.com
+
+Issues Page: https://github.com/ritabratamaiti/RapidML/issues
+
+Twitter: https://twitter.com/ritabratamaiti
       ''',
       author='Ritabrata Maiti',
       author_email='ritabratamaiti@hiretrex.com',
@@ -30,7 +41,8 @@ setup(name='RapidML',
                     'tqdm>=4.11.2',
                     'stopit>=1.1.1',
                     'pandas>=0.20.2',
-                    'TPOT>=0.9'],
+                    'TPOT>=0.9',
+					'dill>=0.2.8'],
         extras_require={
         'xgboost': ['xgboost==0.6a2'],
         'skrebate': ['skrebate>=0.3.4'],

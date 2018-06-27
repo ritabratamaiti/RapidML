@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: RapidML
+Version: 1.0.1
+Summary: RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud. Find the documentation at: https://ritabratamaiti.github.io/RapidML
+Home-page: https://github.com/ritabratamaiti/RapidML
+Author: Ritabrata Maiti
+Author-email: ritabratamaiti@hiretrex.com
+License: LGPLv3
+Description: 
+        What is RapidML?
+        
+        Well, RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud.
+        
+        RapidML is perfect for Python programmers at all levels, ranging from beginners who want to get into Data Science and Machine Learning to intermediate and advanced programmers who want to bring Machine Learning to consumer and industry usage applications.
+        
+        Apart from making predictions in Python, RapidML models can be exported as Web APIs to develop Machine Learning applications in a wide variety of platforms, such as Javascript, Android, iOS…. and almost everything else which can make and receive web requests!
+        
+        Documentation: https://ritabratamaiti.github.io/RapidML
+        
+        Email: ritabratamaiti@hiretrex.com
+        
+        Issues Page: https://github.com/ritabratamaiti/RapidML/issues
+        
+        Twitter: https://twitter.com/ritabratamaiti
+              
+Keywords: Machine Learning API,pipeline optimization,hyperparameter optimization,data science,machine learning,genetic programming,evolutionary computation
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Provides-Extra: mdr
+Provides-Extra: skrebate
+Provides-Extra: xgboost

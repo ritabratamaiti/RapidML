@@ -1,0 +1,8 @@
+setup.py
+RapidML/__init__.py
+RapidML.egg-info/PKG-INFO
+RapidML.egg-info/SOURCES.txt
+RapidML.egg-info/dependency_links.txt
+RapidML.egg-info/not-zip-safe
+RapidML.egg-info/requires.txt
+RapidML.egg-info/top_level.txt

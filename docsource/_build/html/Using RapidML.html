@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using RapidML &mdash; RapidML 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RapidML API" href="RapidML API.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RapidML
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using RapidML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-rapidml">Why use RapidML?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extremely-easy-to-use-and-intuitive-api">Extremely easy to use and intuitive API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rapid-development-of-machine-learning-models-and-web-apis">Rapid development of Machine Learning Models and Web APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#machine-learning-models-can-be-quickly-deployed-to-production">Machine Learning models can be quickly deployed to production</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rapidml-is-very-versatile-and-it-can-be-extended-for-use-by-more-experienced-developers-and-data-scientists">RapidML is very versatile and it can be extended for use by more experienced Developers and Data Scientists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rapidml-in-action">RapidML in Action</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-with-code">RapidML with code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RapidML API.html">RapidML API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RapidML</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using RapidML</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Using RapidML.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-rapidml">
+<h1>Using RapidML<a class="headerlink" href="#using-rapidml" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-use-rapidml">
+<h2>Why use RapidML?<a class="headerlink" href="#why-use-rapidml" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extremely-easy-to-use-and-intuitive-api">
+<h3>Extremely easy to use and intuitive API<a class="headerlink" href="#extremely-easy-to-use-and-intuitive-api" title="Permalink to this headline">¶</a></h3>
+<p>RapidML can accept DataFrame inputs, which are essentially the easiest ways to programmatically represent .csv (Comma separated values) or .xlsx (Excel) files in Python. Since .csv files and .xlsx are the most commonly used file types in organizing and storing large amounts of data, popular python libraries like Pandas provide methods for converting these files into DataFrames in Python, leading to the popularity of the DataFrame datatype in Data Science and Machine Learning.</p>
+<p>Not all data is numeric, and it is common for some categorical data to be in a textual format. However, many machine learning algorithms can only work with numeric data. RapidML easily solves this problem for data scientists by performing automatic label encoding on such data. An example of this could be a gender attribute (field) containing ‘female’, ‘male’ and ‘other’ as possible values, then RapidML can encode these as, say, {‘female’: 0, ‘other’: 1, ‘male’: 2}</p>
+</div>
+<div class="section" id="rapid-development-of-machine-learning-models-and-web-apis">
+<h3>Rapid development of Machine Learning Models and Web APIs<a class="headerlink" href="#rapid-development-of-machine-learning-models-and-web-apis" title="Permalink to this headline">¶</a></h3>
+<p>RapidML utilizes TPOT (Tree-based Pipeline Optimization Tool) as its backend for automated algorithm selection. TPOT utilizes genetic programming to select the best Scikit-Learn model and performs hyperparameter optimization on the model. RapidML then trains this model and uses it to perform future predictions.</p>
+<p>Using the model, RapidML programmatically generates a Web API using the Flask framework, which can be easily self-hosted or uploaded to a remote server in order to make machine learning predictions in the cloud. Requests are quite easy to make, by using URL parameters in the <code class="docutils literal notranslate"><span class="pre">/query?ip=</span></code> part of the request. See making requests for more info.</p>
+</div>
+<div class="section" id="machine-learning-models-can-be-quickly-deployed-to-production">
+<h3>Machine Learning models can be quickly deployed to production<a class="headerlink" href="#machine-learning-models-can-be-quickly-deployed-to-production" title="Permalink to this headline">¶</a></h3>
+<p>This is an extension of the previous point and serves to highlight the fact that RapidML models can be used for easy and quick prototyping of production-level applications, on multiple platforms such as through the web, as well as Android and iOS applications, just to name a few.</p>
+</div>
+<div class="section" id="rapidml-is-very-versatile-and-it-can-be-extended-for-use-by-more-experienced-developers-and-data-scientists">
+<h3>RapidML is very versatile and it can be extended for use by more experienced Developers and Data Scientists<a class="headerlink" href="#rapidml-is-very-versatile-and-it-can-be-extended-for-use-by-more-experienced-developers-and-data-scientists" title="Permalink to this headline">¶</a></h3>
+<p>If you prefer to select machine learning algorithms on your own, then RapidML allows you to train the model and run it in the cloud. For example, if you don’t wish to use TPOT’s automated machine learning, but would rather implement a neural network (Scikit-learn’s implementation), then you can easily do so using RapidML’s <code class="docutils literal notranslate"><span class="pre">udm</span></code> (user-defined model) function in order to run the neural network in the cloud.
+RapidML’s versatility makes it a tool that encompasses the differences between programmers, Data Scientists, and Web Developers at all expertise levels and enables everyone to take part in the exciting field of Machine Learning and Artificial Intelligence.</p>
+</div>
+<div class="section" id="rapidml-in-action">
+<h3>RapidML in Action<a class="headerlink" href="#rapidml-in-action" title="Permalink to this headline">¶</a></h3>
+<p>RapidML has a wide variety of application, ranging from the field of medicine to scientific predictions in statistics, like a prediction of radiation emissions or meteorological prediction (weather prediction) and even predicting stocks prices.
+RapidML is already being used in the development of a Machine Learning Web API  that is utilized in an android application for ASD detection in adult patients.</p>
+<p>Find this project here: <a class="reference external" href="https://github.com/ritabratamaiti/ASD_Detect">https://github.com/ritabratamaiti/ASD_Detect</a>. <cite>This project was developed to showcase RapidML’s use cases, and shouldn’t be use for making diagnosis without clinical trials, and permission of the author</cite>.</p>
+</div>
+</div>
+<div class="section" id="rapidml-with-code">
+<h2>RapidML with code<a class="headerlink" href="#rapidml-with-code" title="Permalink to this headline">¶</a></h2>
+<p>The following code should give a fair idea on RapidML usage. Note: Visit <a class="reference internal" href="Examples.html#example"><span class="std std-ref">Examples</span></a> for more code samples and projects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RapidML</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+
+<span class="c1"># This Autism Screening Adult Data Set is from UCI Machine Learning Repository and is available here: https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;out.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">ml_model</span> <span class="o">=</span> <span class="n">RapidML</span><span class="o">.</span><span class="n">rapid_classifier</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ASDapi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Note: The training data is an Autism Screening Adult DataSet from UCI Machine Learning Repository and is available here:</em> <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult">https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult</a></p>
+<p>The code generates the following output. Here <code class="docutils literal notranslate"><span class="pre">ml_model</span></code> is assigned an <code class="docutils literal notranslate"><span class="pre">rml</span></code> object by the <code class="docutils literal notranslate"><span class="pre">RapidML.rapid_classifier</span></code> function. To learn about the <code class="docutils literal notranslate"><span class="pre">rml</span></code> class, as well as RapidML functions, go to <a class="reference internal" href="RapidML API.html#rapidml-api"><span class="std std-ref">RapidML API</span></a>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RapidML, Version: 0.1, Author: Ritabrata Maiti
+
+
+       .---.        .-----------
+      /     \  __  /    ------
+     / /     \(  )/    -----
+    //////   &#39; \/ `   ---
+   //// / // :    : ---
+  // /   /  /`    &#39;--
+ //          //..\
+        ====UU====UU====
+            &#39;//||\\`
+              &#39;&#39;``
+
+Warning: xgboost.XGBClassifier is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+
+Using the RapidML Classifier; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com
+Label Encoding is being done....
+
+Training....
+
+Generation 1 - Current best internal CV score: 1.0
+Generation 2 - Current best internal CV score: 1.0
+Generation 3 - Current best internal CV score: 1.0
+Generation 4 - Current best internal CV score: 1.0
+Generation 5 - Current best internal CV score: 1.0
+
+Best pipeline: DecisionTreeClassifier(input_matrix, criterion=entropy, max_depth=2, min_samples_leaf=4, min_samples_split=6)
+
+Sample Output from input dataframe:
+1,1,0,1,0,0,1,1,0,1,6,35.0,f,White-European,no,yes,United States,no,Self,NO
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RapidML API.html" class="btn btn-neutral float-right" title="RapidML API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ritabrata Maiti.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

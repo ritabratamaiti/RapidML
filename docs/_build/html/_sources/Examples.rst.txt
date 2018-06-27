@@ -147,12 +147,13 @@ As we can see in this example, a score of ``-10.908425630183695`` has been achie
 In the directory ``RapidML_files``, the model file and ``API.py`` script has been generated which can be uploaded to a WSGI server (with ``Flask`` support) to perform cloud predictions. 
 
 
-================================================================================
+********************************************************************************
 Using RapidML to build a neural network (For recognizing hand-written digits)
-================================================================================
+********************************************************************************
 
 This example serves to demonstrate the versatility of RapidMl, by using udm(User Defined Models). Do note that we will be using matplotlib to visualise the digits' images. In this example, we use ``RapidML.rapid_udm_arr`` in order to feed a neural network classifier (``sklearn.neural_network.MLPClassifier``) as the machine learning model. We use the ``digits`` dataset from ``sklearn.datasets``, and train the neural network on half the data. The other half is used for testing and visualization.
 
+The following are Jupyter Notebook cells and their corresponding output.
 
 
 .. code:: ipython3
@@ -272,4 +273,4 @@ This example serves to demonstrate the versatility of RapidMl, by using udm(User
 
 **Note**: If you wish to use the model as a flask API, do remember to flatten the image, to turn the data in a (samples, feature) matrix, and then convert to URL argument. However, this method hasn't undergone complete testing and is not guaranteed to work. However, it is possible to modify the ``API.py`` file to say, accept an image and then flatten it within the script itself.
 
-:ref:`Example`
+

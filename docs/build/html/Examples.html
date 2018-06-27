@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; RapidML 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Support" href="support.html" />
+    <link rel="prev" title="RapidML API" href="RapidML API.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RapidML
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using RapidML.html">Using RapidML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RapidML API.html">RapidML API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asd-autism-spectrum-disorder-detection">ASD (Autism Spectrum Disorder) Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boston-house-prices">Boston House Prices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-rapidml-to-build-a-neural-network-for-recognizing-hand-written-digits">Using RapidML to build a neural network (For recognizing hand-written digits)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RapidML</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<span id="example"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="asd-autism-spectrum-disorder-detection">
+<h2>ASD (Autism Spectrum Disorder) Detection<a class="headerlink" href="#asd-autism-spectrum-disorder-detection" title="Permalink to this headline">¶</a></h2>
+<p>GitHub: <a class="reference external" href="https://github.com/ritabratamaiti/Autism-Detection-API">https://github.com/ritabratamaiti/Autism-Detection-API</a></p>
+<p>This project utilizes RapidML to detect ASD cases in adults. The training data consists of responses provided by the patients on the AQ-10 questionnaire. RapidML is utilized for selecting, training, serializing and packaging a high accuracy classifier. The files directory generated by RapidML, containing the packaged model is then uploaded to a WSGI server (See various deployment options here: <a class="reference external" href="http://flask.pocoo.org/docs/1.0/deploying/">http://flask.pocoo.org/docs/1.0/deploying/</a>).</p>
+<p>PythonAnywhere (<a class="reference external" href="https://www.pythonanywhere.com">https://www.pythonanywhere.com</a>) was used in this project. <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">builder_script.py</span></code> utilizes RapidML.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RapidML</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+
+<span class="c1"># This Autism Screening Adult Data Set is from UCI Machine Learning Repository and is available here: https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;out.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">ml_model</span> <span class="o">=</span> <span class="n">RapidML</span><span class="o">.</span><span class="n">rapid_classifier</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ASDapi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Note: The training data is an Autism Screening Adult DataSet from UCI Machine Learning Repository and is available here:</em> <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult">https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult</a></p>
+<p>The code generates the following output.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RapidML, Version: 0.1, Author: Ritabrata Maiti
+
+
+       .---.        .-----------
+      /     \  __  /    ------
+     / /     \(  )/    -----
+    //////   &#39; \/ `   ---
+   //// / // :    : ---
+  // /   /  /`    &#39;--
+ //          //..\
+        ====UU====UU====
+            &#39;//||\\`
+              &#39;&#39;``
+
+Warning: xgboost.XGBClassifier is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+
+Using the RapidML Classifier; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com
+Label Encoding is being done....
+
+Training....
+
+Generation 1 - Current best internal CV score: 1.0
+Generation 2 - Current best internal CV score: 1.0
+Generation 3 - Current best internal CV score: 1.0
+Generation 4 - Current best internal CV score: 1.0
+Generation 5 - Current best internal CV score: 1.0
+
+Best pipeline: DecisionTreeClassifier(input_matrix, criterion=entropy, max_depth=2, min_samples_leaf=4, min_samples_split=6)
+
+Sample Output from input dataframe:
+1,1,0,1,0,0,1,1,0,1,6,35.0,f,White-European,no,yes,United States,no,Self,NO
+</pre></div>
+</div>
+<p>The generated model, scripts and serialized files are stored in the directory: <code class="docutils literal notranslate"><span class="pre">ASDapi</span></code>.This directory is uploaded to a WSGI server, for making cloud predictions.</p>
+<p><strong>Note</strong>: This is a complete project, and some parts (such as the creation of the Android application) is outside the scope of RapidML documentation. Please visit the project on <a class="reference external" href="https://github.com/ritabratamaiti/Autism-Detection-API">Github</a> for more details.</p>
+</div>
+<div class="section" id="boston-house-prices">
+<h2>Boston House Prices<a class="headerlink" href="#boston-house-prices" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say we are building a machine learning model to run on the cloud and predict housing prices in an area, using parameters such as crime rates, business development, pollution metrics etc. We will be using the Boston House Prices dataset, due to its wide availability and usage within machine learning academia. Dataset description here: <a class="reference external" href="https://www.kaggle.com/c/boston-housing">https://www.kaggle.com/c/boston-housing</a></p>
+<p><strong>Note</strong>: We will be using <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> for easy loading of the Boston-housing dataset within Python.</p>
+<p>Since we are predicting prices, it is clearly a regression problem. We will be using <code class="docutils literal notranslate"><span class="pre">RapidML.rapid_regressor_arr</span></code> for this task.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">RapidML</span>
+
+<span class="n">housing</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">housing</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+                                                    <span class="n">train_size</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RapidML</span><span class="o">.</span><span class="n">rapid_regressor_arr</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">m_tpot</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The following output is generated.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RapidML, Version: 0.1, Author: Ritabrata Maiti
+
+
+       .---.        .-----------
+      /     \  __  /    ------
+     / /     \(  )/    -----
+    //////   &#39; \/ `   ---
+   //// / // :    : ---
+  // /   /  /`    &#39;--
+ //          //..\\
+        ====UU====UU====
+            &#39;//||\\\`
+              &#39;&#39;``
+
+Warning: xgboost.XGBClassifier is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+Warning: xgboost.XGBRegressor is not available and will not be used by TPOT.
+
+Using RapidML Regressor with arrays, Inputs will not be label encoded.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com
+
+Training....
+
+Generation 1 - Current best internal CV score: -11.913707598413463
+Generation 2 - Current best internal CV score: -11.913707598413463
+Generation 3 - Current best internal CV score: -11.913707598413463
+Generation 4 - Current best internal CV score: -11.913707598413463
+Generation 5 - Current best internal CV score: -11.404014702360742
+
+Best pipeline: GradientBoostingRegressor(input_matrix, alpha=0.75, learning_rate=0.1, loss=huber, max_depth=3, max_features=1.0, min_samples_leaf=5, min_samples_split=4, n_estimators=100, subsample=0.6000000000000001)
+-10.908425630183695
+</pre></div>
+</div>
+<p>As we can see in this example, a score of <code class="docutils literal notranslate"><span class="pre">-10.908425630183695</span></code> has been achieved. Do note that different models may be generated on a separate program run and hence the scores may fluctuate by a small margin (approximately 1% or so).</p>
+<p>In the directory <code class="docutils literal notranslate"><span class="pre">RapidML_files</span></code>, the model file and <code class="docutils literal notranslate"><span class="pre">API.py</span></code> script has been generated which can be uploaded to a WSGI server (with <code class="docutils literal notranslate"><span class="pre">Flask</span></code> support) to perform cloud predictions.</p>
+</div>
+<div class="section" id="using-rapidml-to-build-a-neural-network-for-recognizing-hand-written-digits">
+<h2>Using RapidML to build a neural network (For recognizing hand-written digits)<a class="headerlink" href="#using-rapidml-to-build-a-neural-network-for-recognizing-hand-written-digits" title="Permalink to this headline">¶</a></h2>
+<p>This example serves to demonstrate the versatility of RapidMl, by using udm(User Defined Models). Do note that we will be using matplotlib to visualise the digits’ images. In this example, we use <code class="docutils literal notranslate"><span class="pre">RapidML.rapid_udm_arr</span></code> in order to feed a neural network classifier (<code class="docutils literal notranslate"><span class="pre">sklearn.neural_network.MLPClassifier</span></code>) as the machine learning model. We use the <code class="docutils literal notranslate"><span class="pre">digits</span></code> dataset from <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code>, and train the neural network on half the data. The other half is used for testing and visualization.</p>
+<p>The following are Jupyter Notebook cells and their corresponding output.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RapidML</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="k">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+<span class="c1"># The data that we are interested in is made of 8x8 images of digits, let&#39;s</span>
+<span class="c1"># have a look at the first 4 images, stored in the `images` attribute of the</span>
+<span class="c1"># dataset.  If we were working from image files, we could load them using</span>
+<span class="c1"># matplotlib.pyplot.imread.  Note that each image must have the same size. For these</span>
+<span class="c1"># images, we know which digit they represent: it is given in the &#39;target&#39; of</span>
+<span class="c1"># the dataset.</span>
+<span class="n">images_and_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images_and_labels</span><span class="p">[:</span><span class="mi">4</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training: </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+
+<span class="c1"># To apply a classifier on this data, we need to flatten the image, to</span>
+<span class="c1"># turn the data in a (samples, feature) matrix:</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mclf</span> <span class="o">=</span> <span class="n">RapidML</span><span class="o">.</span><span class="n">rapid_udm_arr</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">2</span><span class="p">],</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">2</span><span class="p">],</span> <span class="n">clf</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">RapidML</span> <span class="k">with</span> <span class="n">User</span> <span class="n">Defined</span> <span class="n">Models</span> <span class="ow">and</span> <span class="n">Arrays</span><span class="p">,</span> <span class="n">Inputs</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">label</span> <span class="n">encoded</span><span class="p">;</span> <span class="n">note</span> <span class="n">that</span> <span class="n">the</span> <span class="n">model</span> <span class="n">provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">user</span> <span class="n">should</span> <span class="n">be</span> <span class="n">a</span> <span class="n">Scikit_learn</span> <span class="n">model</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">TPOT</span> <span class="nb">object</span><span class="o">.</span><span class="p">;</span> <span class="n">Experimental</span><span class="p">,</span> <span class="n">For</span> <span class="n">Issues</span> <span class="n">Contact</span> <span class="n">Author</span><span class="p">:</span> <span class="n">ritabratamaiti</span><span class="nd">@hiretrex</span><span class="o">.</span><span class="n">com</span>
+
+<span class="n">Training</span><span class="o">....</span>
+</pre></div>
+</div>
+<pre class="literal-block">
+C:UsersRitabrata MaitiAnaconda3libsite-packagessklearnneural_networkmultilayer_perceptron.py:564: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  % self.max_iter, ConvergenceWarning)
+</pre>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:]</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">mclf</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:])</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification report for classifier </span><span class="si">%s</span><span class="s2">:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="o">%</span> <span class="p">(</span><span class="n">mclf</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion matrix:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Classification</span> <span class="n">report</span> <span class="k">for</span> <span class="n">classifier</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">beta_1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+       <span class="n">beta_2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span> <span class="n">early_stopping</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span>
+       <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,),</span> <span class="n">learning_rate</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span>
+       <span class="n">learning_rate_init</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+       <span class="n">nesterovs_momentum</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">power_t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+       <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">validation_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+       <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+             <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+
+          <span class="mi">0</span>       <span class="mf">0.99</span>      <span class="mf">0.97</span>      <span class="mf">0.98</span>        <span class="mi">88</span>
+          <span class="mi">1</span>       <span class="mf">0.95</span>      <span class="mf">0.92</span>      <span class="mf">0.94</span>        <span class="mi">91</span>
+          <span class="mi">2</span>       <span class="mf">0.99</span>      <span class="mf">0.98</span>      <span class="mf">0.98</span>        <span class="mi">86</span>
+          <span class="mi">3</span>       <span class="mf">0.96</span>      <span class="mf">0.85</span>      <span class="mf">0.90</span>        <span class="mi">91</span>
+          <span class="mi">4</span>       <span class="mf">0.99</span>      <span class="mf">0.89</span>      <span class="mf">0.94</span>        <span class="mi">92</span>
+          <span class="mi">5</span>       <span class="mf">0.93</span>      <span class="mf">0.96</span>      <span class="mf">0.94</span>        <span class="mi">91</span>
+          <span class="mi">6</span>       <span class="mf">0.91</span>      <span class="mf">0.99</span>      <span class="mf">0.95</span>        <span class="mi">91</span>
+          <span class="mi">7</span>       <span class="mf">0.95</span>      <span class="mf">0.99</span>      <span class="mf">0.97</span>        <span class="mi">89</span>
+          <span class="mi">8</span>       <span class="mf">0.93</span>      <span class="mf">0.94</span>      <span class="mf">0.94</span>        <span class="mi">88</span>
+          <span class="mi">9</span>       <span class="mf">0.86</span>      <span class="mf">0.96</span>      <span class="mf">0.91</span>        <span class="mi">92</span>
+
+<span class="n">avg</span> <span class="o">/</span> <span class="n">total</span>       <span class="mf">0.95</span>      <span class="mf">0.94</span>      <span class="mf">0.94</span>       <span class="mi">899</span>
+
+
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="p">:</span>
+<span class="p">[[</span><span class="mi">85</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">2</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span> <span class="mi">84</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">5</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">1</span>  <span class="mi">0</span> <span class="mi">84</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span> <span class="mi">77</span>  <span class="mi">0</span>  <span class="mi">3</span>  <span class="mi">0</span>  <span class="mi">4</span>  <span class="mi">6</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">82</span>  <span class="mi">0</span>  <span class="mi">6</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">4</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">87</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">90</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span> <span class="mi">88</span>  <span class="mi">0</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">3</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">83</span>  <span class="mi">2</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">2</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span> <span class="mi">88</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">images_and_predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:],</span> <span class="n">predicted</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images_and_predictions</span><span class="p">[:</span><span class="mi">4</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediction: </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">prediction</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/output_5_0.png" src="_images/output_5_0.png" />
+<p><strong>Note</strong>: If you wish to use the model as a flask API, do remember to flatten the image, to turn the data in a (samples, feature) matrix, and then convert to URL argument. However, this method hasn’t undergone complete testing and is not guaranteed to work. However, it is possible to modify the <code class="docutils literal notranslate"><span class="pre">API.py</span></code> file to say, accept an image and then flatten it within the script itself.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RapidML API.html" class="btn btn-neutral" title="RapidML API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ritabrata Maiti.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

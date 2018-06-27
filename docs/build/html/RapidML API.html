@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RapidML API &mdash; RapidML 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="Examples.html" />
+    <link rel="prev" title="Using RapidML" href="Using RapidML.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RapidML
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using RapidML.html">Using RapidML</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RapidML API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-rapidml-rml-class">The <code class="docutils literal notranslate"><span class="pre">RapidML.rml</span></code> Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rml-class-attributes"><code class="docutils literal notranslate"><span class="pre">rml</span></code> <strong>class attributes</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#model"><code class="docutils literal notranslate"><span class="pre">model</span></code> :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#m-tpot"><code class="docutils literal notranslate"><span class="pre">m_tpot</span></code> :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d"><code class="docutils literal notranslate"><span class="pre">d</span></code> :</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rml-class-functions"><code class="docutils literal notranslate"><span class="pre">rml</span></code> <strong>class functions</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#put-self-mdl-d-none"><code class="docutils literal notranslate"><span class="pre">put(self,</span> <span class="pre">mdl,</span> <span class="pre">d=None)</span></code> :</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-self-df"><code class="docutils literal notranslate"><span class="pre">le(self,</span> <span class="pre">df)</span></code> :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-classifier"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_classifier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#df"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le"><code class="docutils literal notranslate"><span class="pre">le</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-created">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dt"><code class="docutils literal notranslate"><span class="pre">dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#f"><code class="docutils literal notranslate"><span class="pre">f</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-py"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#helper-py"><code class="docutils literal notranslate"><span class="pre">helper.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-regressor"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_regressor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">le</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">f</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">helper.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-classifier-arr"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_classifier_arr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#x"><code class="docutils literal notranslate"><span class="pre">X</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#y"><code class="docutils literal notranslate"><span class="pre">Y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-regressor-arr"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_regressor_arr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">X</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-udm"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_udm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id38"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">le</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id44"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45"><code class="docutils literal notranslate"><span class="pre">d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id46"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id47"><code class="docutils literal notranslate"><span class="pre">dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48"><code class="docutils literal notranslate"><span class="pre">f</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51"><code class="docutils literal notranslate"><span class="pre">helper.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rapidml-rapid-udm-arr"><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_udm_arr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id52">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id53"><code class="docutils literal notranslate"><span class="pre">X</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id54"><code class="docutils literal notranslate"><span class="pre">Y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id55"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id56"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id58">Files Created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id59"><code class="docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id60"><code class="docutils literal notranslate"><span class="pre">API.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RapidML</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>RapidML API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/RapidML API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rapidml-api">
+<span id="id1"></span><h1>RapidML API<a class="headerlink" href="#rapidml-api" title="Permalink to this headline">¶</a></h1>
+<p>Getting started with RapidML is easy. All RapidML functions return an object of the <code class="docutils literal notranslate"><span class="pre">rml</span></code> class.</p>
+<div class="section" id="the-rapidml-rml-class">
+<h2>The <code class="docutils literal notranslate"><span class="pre">RapidML.rml</span></code> Class<a class="headerlink" href="#the-rapidml-rml-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="RapidML.rml">
+<em class="property">class </em><code class="descclassname">RapidML.</code><code class="descname">rml</code><a class="headerlink" href="#RapidML.rml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="rml-class-attributes">
+<h3><code class="docutils literal notranslate"><span class="pre">rml</span></code> <strong>class attributes</strong><a class="headerlink" href="#rml-class-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="model">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code> :<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h4>
+<p>This is the machine learning model generated by RapidML. It has already been trained on the training data and the target that was provided by the user, either as a DataFrame or in the form of X,y arrays wherein X is training data and y is target variables. This attribute is never null.</p>
+</div>
+<div class="section" id="m-tpot">
+<h4><code class="docutils literal notranslate"><span class="pre">m_tpot</span></code> :<a class="headerlink" href="#m-tpot" title="Permalink to this headline">¶</a></h4>
+<p>Note: This may be null depending on the type of the functions use. See function usage here. This is a TPOT object which may be a TPOTClassifier or a TPOTRegressor. RapidML uses this object to find the optimal machine learning model for the supplied data.</p>
+<p>You can use the various functions and attributes of rml.m_tpot in order to evaluate the trained model. For example: <code class="docutils literal notranslate"><span class="pre">rml.m_tpot.score(testing_features,</span> <span class="pre">testing_classes)</span></code> will allow us to evaluate our model on training data by returning an accuracy score. See the TPOT documentation for all the available functions and attributes of <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code></p>
+</div>
+<div class="section" id="d">
+<h4><code class="docutils literal notranslate"><span class="pre">d</span></code> :<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h4>
+<p>Note: This may be null depending on the type of the functions use. See function <a class="reference external" href="RapidML%20API.html#rapidml-with-automated-machine-learning">usage</a> here.</p>
+<p>This is a defaultdict containing the labels and their corresponding transformed values, should we choose to labelencode the table. See <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">sklearn.preprocessing.LabelEncoder</a> for more details.</p>
+</div>
+</div>
+<div class="section" id="rml-class-functions">
+<h3><code class="docutils literal notranslate"><span class="pre">rml</span></code> <strong>class functions</strong><a class="headerlink" href="#rml-class-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="put-self-mdl-d-none">
+<h4><code class="docutils literal notranslate"><span class="pre">put(self,</span> <span class="pre">mdl,</span> <span class="pre">d=None)</span></code> :<a class="headerlink" href="#put-self-mdl-d-none" title="Permalink to this headline">¶</a></h4>
+<p>This is a method used by the RapidML functions for assignment of attributes of rml objects. Here <code class="docutils literal notranslate"><span class="pre">mdl</span></code> can either be the model supplied by the user or supplied by RapidML via TPOT.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mdl</span></code> is a TPOT object then the <code class="docutils literal notranslate"><span class="pre">model</span></code> attribute is <code class="docutils literal notranslate"><span class="pre">mdl.fitted_pipeline_</span></code> (the best pipeline found with TPOT for the training data) and the <code class="docutils literal notranslate"><span class="pre">m_tpot</span></code> attribute is a TPOT object. However if <code class="docutils literal notranslate"><span class="pre">mdl</span></code> is a fitted (trained) machine learning model then the <code class="docutils literal notranslate"><span class="pre">model</span></code> attribute will be mdl and the <code class="docutils literal notranslate"><span class="pre">m_tpot</span></code> attribute will be null.</p>
+<p>If we decide to labelencode the training data, then the <code class="docutils literal notranslate"><span class="pre">d</span></code> attribute will be the <em>d</em> supplied as the function argument. Otherwise, the <code class="docutils literal notranslate"><span class="pre">d</span></code> attribute will be null.</p>
+</div>
+<div class="section" id="le-self-df">
+<h4><code class="docutils literal notranslate"><span class="pre">le(self,</span> <span class="pre">df)</span></code> :<a class="headerlink" href="#le-self-df" title="Permalink to this headline">¶</a></h4>
+<p>This function may be called by the user from an <code class="docutils literal notranslate"><span class="pre">rml</span></code> object, in order to perform label encoding on another dataset, using the same encoding table used on a previous similar dataset.</p>
+<p>For example, if we wish to perform the same transformation of labels on two DataFrames with same types of columns but different rows, then we first labelencode the first table, and then use this function to labelencode the next table.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-classifier">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_classifier</span></code><a class="headerlink" href="#rapidml-rapid-classifier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_classifier">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_classifier</code><span class="sig-paren">(</span><em>df</em>, <em>le = 'Yes'</em>, <em>model = TPOTClassifier(generations=5</em>, <em>population_size=50</em>, <em>verbosity=2)</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_classifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">rapid_classifier</span></code> performs label encoding on the input DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> (which are the features), depending on the user’s input. It then uses a TPOT backend to perform an intelligent search to find and optimize the best classifier in accordance with the input data. Finally, it populates an <code class="docutils literal notranslate"><span class="pre">rml</span></code> object’s attributes and returns this object.</p>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="df">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#df" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
+<p>This is the input DataFrame provided by the users as the training features as well as the initial columns and the target as the last column on the DataFrame.</p>
+</div>
+<div class="section" id="le">
+<h4><code class="docutils literal notranslate"><span class="pre">le</span></code><a class="headerlink" href="#le" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code>. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code>, then RapidML will labelencode the input DataFrame supplied as <code class="docutils literal notranslate"><span class="pre">df</span></code>, and store the <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> in a <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code>. Or, if <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'No'</span></code> then LabelEncoding will not be done. For any other value of <code class="docutils literal notranslate"><span class="pre">le</span></code>, a value error will be raised.</p>
+</div>
+<div class="section" id="id2">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">tpot.TPOTClassifier</span></code></p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">tpot.TPOTClassifier(generations=5,</span> <span class="pre">population_size=50,</span> <span class="pre">verbosity=2)</span></code>. This is a TPOTClassifier object. You can pass a TPOTClassifier object with different parameter configurations as per your requirement. In general, increasing the <code class="docutils literal notranslate"><span class="pre">generations</span></code> and <code class="docutils literal notranslate"><span class="pre">population_size</span></code> increases the model’s accuracy.  See <a class="reference external" href="http://epistasislab.github.io/tpot/api/#classification">TPOTClassifier</a> for more details.</p>
+</div>
+<div class="section" id="name">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span> <span class="pre">and</span> <span class="pre">``helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the web API.</p>
+</div>
+</div>
+<div class="section" id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code> then <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> is populated, otherwise, it is null. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> and <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> are always populated, when using <code class="docutils literal notranslate"><span class="pre">rapid_classifier</span></code>.</p>
+</div>
+<div class="section" id="files-created">
+<h3>Files Created<a class="headerlink" href="#files-created" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id4">
+<h4><code class="docutils literal notranslate"><span class="pre">d</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>This is the <code class="docutils literal notranslate"><span class="pre">DefaultDict</span></code> (like <code class="docutils literal notranslate"><span class="pre">dict</span></code>) containing the LabelEncoder used to encode the labels in the DataFrame.  It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id5">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>This is the skeletal DataFrame, which contains only headers and no data. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="dt">
+<h4><code class="docutils literal notranslate"><span class="pre">dt</span></code><a class="headerlink" href="#dt" title="Permalink to this headline">¶</a></h4>
+<p>This is a list containing the data types of the columns in the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="f">
+<h4><code class="docutils literal notranslate"><span class="pre">f</span></code><a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h4>
+<p>This is a string containing a dummy input value and can be fed to the API as an URL argument. It is the second row of the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, converted to a string. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="api-py">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#api-py" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <a class="reference external" href="http://flask.pocoo.org/">Flask-API</a> used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+<div class="section" id="helper-py">
+<h4><code class="docutils literal notranslate"><span class="pre">helper.py</span></code><a class="headerlink" href="#helper-py" title="Permalink to this headline">¶</a></h4>
+<p>This is a helper module used by <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and performs the actual predictions using the RapidML generated model.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-regressor">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_regressor</span></code><a class="headerlink" href="#rapidml-rapid-regressor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_regressor">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_regressor</code><span class="sig-paren">(</span><em>df</em>, <em>le = 'No'</em>, <em>model = TPOTRegressor(generations=5</em>, <em>population_size=50</em>, <em>verbosity=2)</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_regressor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">rapid_regressor</span></code> performs label encoding on the input DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> (which are the features), depending on the user’s input. It then uses a TPOT backend to perform an intelligent search to find and optimize the best regressor in accordance with the input data. Finally, it populates an <code class="docutils literal notranslate"><span class="pre">rml</span></code> object’s attributes and returns this object.</p>
+<div class="section" id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
+<p>This is the input DataFrame provided by the users as the training features as well as the initial columns and the target as the last column on the DataFrame.</p>
+</div>
+<div class="section" id="id8">
+<h4><code class="docutils literal notranslate"><span class="pre">le</span></code><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">'No'</span></code>. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code>, then RapidML will labelencode the input DataFrame supplied as <code class="docutils literal notranslate"><span class="pre">df</span></code>, and store the <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> in a <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code>. Or, if <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'No'</span></code> then LabelEncoding will not be done. For any other value of <code class="docutils literal notranslate"><span class="pre">le</span></code>, a value error will be raised.</p>
+</div>
+<div class="section" id="id9">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">tpot.TPOTRegressor</span></code></p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">tpot.TPOTRegressor(generations=5,</span> <span class="pre">population_size=50,</span> <span class="pre">verbosity=2)</span></code>. This is a TPOTRegressor object. You can pass a TPOTRegressor object with different parameter configurations as per your requirement. In general, increasing the <code class="docutils literal notranslate"><span class="pre">generations</span></code> and <code class="docutils literal notranslate"><span class="pre">population_size</span></code> increases the model’s accuracy.  See <a class="reference external" href="http://epistasislab.github.io/tpot/api/#regression">TPOTRegressor</a> for more details.</p>
+</div>
+<div class="section" id="id10">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span> <span class="pre">and</span> <span class="pre">``helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the web API.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Returns<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code> then <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> is populated, otherwise, it is null. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> and <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> are always populated, when using <code class="docutils literal notranslate"><span class="pre">rapid_regressor</span></code>.</p>
+</div>
+<div class="section" id="id12">
+<h3>Files Created<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id14">
+<h4><code class="docutils literal notranslate"><span class="pre">d</span></code><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>This is the <code class="docutils literal notranslate"><span class="pre">DefaultDict</span></code> (like <code class="docutils literal notranslate"><span class="pre">dict</span></code>) containing the LabelEncoder used to encode the labels in the DataFrame.  It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id15">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>This is the skeletal DataFrame, which contains only headers and no data. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id16">
+<h4><code class="docutils literal notranslate"><span class="pre">dt</span></code><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>This is a list containing the data types of the columns in the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id17">
+<h4><code class="docutils literal notranslate"><span class="pre">f</span></code><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p>This is a string containing a dummy input value and can be fed to the API as an URL argument. It is the second row of the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, converted to a string. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id18">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <a class="reference external" href="http://flask.pocoo.org/">Flask-API</a> used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+<div class="section" id="id20">
+<h4><code class="docutils literal notranslate"><span class="pre">helper.py</span></code><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>This is a helper module used by <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and performs the actual predictions using the RapidML generated model.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-classifier-arr">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_classifier_arr</span></code><a class="headerlink" href="#rapidml-rapid-classifier-arr" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_classifier_arr">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_classifier_arr</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model = TPOTClassifier(generations=5</em>, <em>population_size=50</em>, <em>verbosity=2)</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_classifier_arr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">rapid_classifier_arr</span></code> function is similar to the <code class="docutils literal notranslate"><span class="pre">rapid_classifier</span></code>, except rather receiving the features and targets as a single input DataFrame, the function receives the features as X (type numpy.array), and the target as Y (type <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>). Another important point of difference is that this function doesn’t perform label encoding.</p>
+<div class="section" id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="x">
+<h4><code class="docutils literal notranslate"><span class="pre">X</span></code><a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the input data.</p>
+</div>
+<div class="section" id="y">
+<h4><code class="docutils literal notranslate"><span class="pre">Y</span></code><a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the target.</p>
+</div>
+<div class="section" id="id22">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">tpot.TPOTClassifier</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">TPOTClassifier(generations=5,</span> <span class="pre">population_size=50,</span> <span class="pre">verbosity=2)</span></code>. This is a TPOTClassifier object. You can pass a TPOTClassifier object with different parameter configurations as per your requirement. In general, increasing the <code class="docutils literal notranslate"><span class="pre">generations</span></code> and <code class="docutils literal notranslate"><span class="pre">population_size</span></code> increases the model’s accuracy.  See the <a class="reference external" href="http://epistasislab.github.io/tpot/api/#classification">TPOTClassifier</a> for more details.</p>
+</div>
+<div class="section" id="id23">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">Dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and <code class="docutils literal notranslate"><span class="pre">helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the internet.</p>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> is always null. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> and <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> are always populated.</p>
+</div>
+<div class="section" id="id25">
+<h3>Files Created<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id27">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <code class="docutils literal notranslate"><span class="pre">Flask</span></code> API used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-regressor-arr">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_regressor_arr</span></code><a class="headerlink" href="#rapidml-rapid-regressor-arr" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_regressor_arr">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_regressor_arr</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model = TPOTRegressor(generations=5</em>, <em>population_size=50</em>, <em>verbosity=2)</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_regressor_arr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">rapid_regressor_arr</span></code> function is similar to the <code class="docutils literal notranslate"><span class="pre">rapid_regressor</span></code>, except rather receiving the features and targets as a single input DataFrame, the function receives the features as X (type numpy.array), and the target as Y (type <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>). Another important point of difference is that this function doesn’t perform label encoding.</p>
+<div class="section" id="id28">
+<h3>Parameters<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h4><code class="docutils literal notranslate"><span class="pre">X</span></code><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the input data.</p>
+</div>
+<div class="section" id="id30">
+<h4><code class="docutils literal notranslate"><span class="pre">Y</span></code><a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the target.</p>
+</div>
+<div class="section" id="id31">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">tpot.TPOTRegressor</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">TPOTRegressor(generations=5,</span> <span class="pre">population_size=50,</span> <span class="pre">verbosity=2)</span></code>. This is a TPOTRegressor object. You can pass a TPOTRegressor object with different parameter configurations as per your requirement. In general, increasing the <code class="docutils literal notranslate"><span class="pre">generations</span></code> and <code class="docutils literal notranslate"><span class="pre">population_size</span></code> increases the model’s accuracy.  See the <a class="reference external" href="http://epistasislab.github.io/tpot/api/#regression">TPOTRegressor</a> for more details.</p>
+</div>
+<div class="section" id="id32">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">Dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and <code class="docutils literal notranslate"><span class="pre">helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the internet.</p>
+</div>
+</div>
+<div class="section" id="id33">
+<h3>Returns<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> is always null. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> and <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> are always populated.</p>
+</div>
+<div class="section" id="id34">
+<h3>Files Created<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id35">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id36">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <code class="docutils literal notranslate"><span class="pre">Flask</span></code> API used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-udm">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_udm</span></code><a class="headerlink" href="#rapidml-rapid-udm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_udm">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_udm</code><span class="sig-paren">(</span><em>df</em>, <em>model</em>, <em>le = 'No'</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_udm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This allows RapidML to be a versatile model in the hands of experienced Data Scientists and developers. It works similarly to the <code class="docutils literal notranslate"><span class="pre">rapid_regressor</span></code> or the <code class="docutils literal notranslate"><span class="pre">rapid_classifier</span></code> wherein a single DataFrame is passed which contains the input data as well as the target (which is the last column).</p>
+<p>However, it allows the user to provide a <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> model of their choice. Depending on the user’s choice, label encoding is done or ignored. The model that is supplied is then fitted (trained) on the input data and then stored, by populating the <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> attribute.</p>
+<div class="section" id="id37">
+<h3>Parameters<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
+<p>This is the input DataFrame provided by the users as the training features as well as the initial columns and the target as the last column on the DataFrame.</p>
+</div>
+<div class="section" id="id39">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> model</p>
+<p>This may be any model which supports the syntax <code class="docutils literal notranslate"><span class="pre">sklearn.model.fit(X,y)</span></code> where X is input data and y is target.</p>
+</div>
+<div class="section" id="id40">
+<h4><code class="docutils literal notranslate"><span class="pre">le</span></code><a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code>. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code>, then RapidML will labelencode the input DataFrame supplied as <code class="docutils literal notranslate"><span class="pre">df</span></code>, and store the <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> in a <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code>. Or, if <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'No'</span></code> then LabelEncoding will not be done. For any other value of <code class="docutils literal notranslate"><span class="pre">le</span></code>, a value error will be raised.</p>
+</div>
+<div class="section" id="id41">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span> <span class="pre">and</span> <span class="pre">``helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the web API.</p>
+</div>
+</div>
+<div class="section" id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. If <code class="docutils literal notranslate"><span class="pre">le</span></code> is <code class="docutils literal notranslate"><span class="pre">'Yes'</span></code> then <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> is populated, otherwise, it is null. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> is always populated, while <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> is always empty.</p>
+</div>
+<div class="section" id="id43">
+<h3>Files Created<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id44">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id45">
+<h4><code class="docutils literal notranslate"><span class="pre">d</span></code><a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h4>
+<p>This is the <code class="docutils literal notranslate"><span class="pre">DefaultDict</span></code> (like <code class="docutils literal notranslate"><span class="pre">dict</span></code>) containing the LabelEncoder used to encode the labels in the DataFrame.  It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id46">
+<h4><code class="docutils literal notranslate"><span class="pre">df</span></code><a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h4>
+<p>This is the skeletal DataFrame, which contains only headers and no data. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id47">
+<h4><code class="docutils literal notranslate"><span class="pre">dt</span></code><a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h4>
+<p>This is a list containing the data types of the columns in the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id48">
+<h4><code class="docutils literal notranslate"><span class="pre">f</span></code><a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h4>
+<p>This is a string containing a dummy input value and can be fed to the API as an URL argument. It is the second row of the input <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, converted to a string. It has been saved after serialization via <code class="docutils literal notranslate"><span class="pre">dill</span></code>.</p>
+</div>
+<div class="section" id="id49">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <a class="reference external" href="http://flask.pocoo.org/">Flask-API</a> used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+<div class="section" id="id51">
+<h4><code class="docutils literal notranslate"><span class="pre">helper.py</span></code><a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h4>
+<p>This is a helper module used by <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and performs the actual predictions using the RapidML generated model.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rapidml-rapid-udm-arr">
+<h2><code class="docutils literal notranslate"><span class="pre">RapidML.rapid_udm_arr</span></code><a class="headerlink" href="#rapidml-rapid-udm-arr" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="RapidML.rapid_udm_arr">
+<code class="descclassname">RapidML.</code><code class="descname">rapid_udm_arr</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model</em>, <em>name='RapidML_files'</em><span class="sig-paren">)</span><a class="headerlink" href="#RapidML.rapid_udm_arr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">rapid_udm</span> <span class="pre">_arr</span></code> function is similar to the <code class="docutils literal notranslate"><span class="pre">rapid_udm</span></code>, except rather receiving the features and targets as a single input DataFrame, the function receives the features as X (type numpy.array), and the target as Y (type <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>). Another important point of difference is that this function doesn’t perform label encoding.</p>
+<div class="section" id="id52">
+<h3>Parameters<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id53">
+<h4><code class="docutils literal notranslate"><span class="pre">X</span></code><a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the input data.</p>
+</div>
+<div class="section" id="id54">
+<h4><code class="docutils literal notranslate"><span class="pre">Y</span></code><a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> or array-like</p>
+<p>This is the target.</p>
+</div>
+<div class="section" id="id55">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> model</p>
+<p>This may be any model which supports the syntax <code class="docutils literal notranslate"><span class="pre">sklearn.model.fit(X,y)</span></code> where X is input data and y is target.</p>
+</div>
+<div class="section" id="id56">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h4>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">&quot;RapidML_Files&quot;</span></code>. The value of the string is the name of the directory in which RapidML creates for storing the machine learning models, LabelEncoder dictionary, skeletal input DataFrame, a datatype list and a dummy user input as serialized <code class="docutils literal notranslate"><span class="pre">Dill</span></code> files, as well as the <code class="docutils literal notranslate"><span class="pre">API.py</span></code> and <code class="docutils literal notranslate"><span class="pre">helper.py</span></code> scripts. This directory is to be uploaded to a web-server, in order to serve (use) the model generated by RapidML for making predictions via the internet.</p>
+</div>
+</div>
+<div class="section" id="id57">
+<h3>Returns<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">rml</span></code> object. <code class="docutils literal notranslate"><span class="pre">rml.model</span></code> is always populated. <code class="docutils literal notranslate"><span class="pre">rml.d</span></code> and <code class="docutils literal notranslate"><span class="pre">rml.m_tpot</span></code> are always null.</p>
+</div>
+<div class="section" id="id58">
+<h3>Files Created<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id59">
+<h4><code class="docutils literal notranslate"><span class="pre">model</span></code><a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h4>
+<p>This is the Machine Learning model generated by RapidML which is saved after being serialized via <code class="docutils literal notranslate"><span class="pre">Dill</span></code>.</p>
+</div>
+<div class="section" id="id60">
+<h4><code class="docutils literal notranslate"><span class="pre">API.py</span></code><a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h4>
+<p>This is the actual <code class="docutils literal notranslate"><span class="pre">Flask</span></code> API used by the server for accepting user inputs, making predictions on the basis of the inputs and returning the predictions.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Using RapidML.html" class="btn btn-neutral" title="Using RapidML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ritabrata Maiti.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

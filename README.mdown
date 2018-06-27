@@ -1,8 +1,9 @@
 Welcome to RapidML's documentation!
 ===================================
-
-<img src="logo.png" class="align-center" />
-
+<p align="center">
+<img src="logo.png">
+</p>
+ 
 What is **RapidML**?
 
 Well, RapidML is your Smart Machine Learning assistant that not only
@@ -21,13 +22,6 @@ as Web APIs to develop Machine Learning applications in a wide variety
 of platforms, such as Javascript, Android, iOS.... **and almost
 everything else which can make and receive web requests**!
 
-install Using RapidML RapidML API Examples support Contributing
 
-Indices and tables
-==================
-
--   <span role="ref">genindex</span>
--   <span role="ref">modindex</span>
--   <span role="ref">search</span>
 
   [(Click to enlarge)]: RapidMLChart1.png

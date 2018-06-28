@@ -1,0 +1,4 @@
+# Linguist
+
+/docs/build/html/* linguist-vendored
+/docs/_build/html/* linguist-vendored

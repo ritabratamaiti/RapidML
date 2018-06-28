@@ -75,7 +75,7 @@ class rml:
             print("\nModel wasn't Label Encoded....")
 
 
-print("\nRapidML, Version: 0.1, Author: Ritabrata Maiti\n")
+print("\nRapidML, Version: 1.0.2, Author: Ritabrata Maiti\n")
 logo = '''
        .---.        .-----------
       /     \  __  /    ------
@@ -97,7 +97,7 @@ def rapid_classifier(df,
                          generations=5, population_size=50, verbosity=2),
                      name="RapidML_Files"):
     print(
-        '\nUsing the RapidML Classifier; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing the RapidML Classifier; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
     d = defaultdict(LabelEncoder)
     if (type(model) != TPOTClassifier):
@@ -159,7 +159,7 @@ def rapid_classifier(df,
 
     str1 = '''
 #RD_AML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 from flask import Flask, request
 import dill
@@ -172,7 +172,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidMLex, Project Version: 1.0.0"
+  return "RapidMLex, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])
@@ -211,7 +211,7 @@ if __name__ == '__main__':
 
     str1 = '''
 #RapidML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 import dill
 import pandas as pd  
@@ -277,7 +277,7 @@ def rapid_regressor(df,
                     name="RapidML_Files"):
 
     print(
-        '\nUsing RapidML Regressor; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing RapidML Regressor; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
     d = defaultdict(LabelEncoder)
     if (type(model) != TPOTRegressor):
@@ -338,7 +338,7 @@ def rapid_regressor(df,
 
     str1 = '''
 #RD_AML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 from flask import Flask, request
 import dill
@@ -351,7 +351,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidMLex, Project Version: 1.0.0"
+  return "RapidMLex, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])
@@ -390,7 +390,7 @@ if __name__ == '__main__':
 
     str1 = '''
 #RapidML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 import dill
 import pandas as pd  
@@ -455,7 +455,7 @@ def rapid_regressor_arr(X,
                         name="RapidML_Files"):
 
     print(
-        '\nUsing RapidML Regressor with arrays, Inputs will not be label encoded.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing RapidML Regressor with arrays, Inputs will not be label encoded; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
 
     if (type(model) != TPOTRegressor):
@@ -476,7 +476,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidML, Project Version: 1.0.0"
+  return "RapidML, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])
@@ -521,7 +521,7 @@ def rapid_classifier_arr(X,
                          name="RapidML_Files"):
 
     print(
-        '\nUsing RapidML Classifier with arrays, Inputs will not be label encoded.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing RapidML Classifier with arrays, Inputs will not be label encoded; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
 
     if (type(model) != TPOTClassifier):
@@ -542,7 +542,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidML, Project Version: 1.0.0"
+  return "RapidML, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])
@@ -583,7 +583,7 @@ if __name__ == '__main__':
 def rapid_udm(df, model, le='No', name="RapidML_Files"):
 
     print(
-        '\nUsing RapidML with an User Defined Model; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing RapidML with an User Defined Model; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
     d = defaultdict(LabelEncoder)
 
@@ -643,7 +643,7 @@ def rapid_udm(df, model, le='No', name="RapidML_Files"):
 
     str1 = '''
 #RD_AML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 from flask import Flask, request
 import dill
@@ -656,7 +656,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidMLex, Project Version: 1.0.0"
+  return "RapidMLex, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])
@@ -695,7 +695,7 @@ if __name__ == '__main__':
 
     str1 = '''
 #RapidML created by Ritabrata Maiti
-#Version: 1.0.0
+#Version: 1.0.2
 
 import dill
 import pandas as pd  
@@ -756,7 +756,7 @@ def predictor():
 def rapid_udm_arr(X, Y, model, name="RapidML_Files"):
 
     print(
-        '\nUsing RapidML with User Defined Models and Arrays, Inputs will not be label encoded; note that the model provided by the user should be a Scikit_learn model and not a TPOT object.; Experimental, For Issues Contact Author: ritabratamaiti@hiretrex.com'
+        '\nUsing RapidML with User Defined Models and Arrays, Inputs will not be label encoded; note that the model provided by the user should be a Scikit_learn model and not a TPOT object; Experimental, For Issues Visit: https://github.com/ritabratamaiti/RapidML/issues or Contact Author: ritabratamaiti@hiretrex.com'
     )
 
     newpath = name
@@ -774,7 +774,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def home():
-  return "RapidML, Project Version: 1.0.0"
+  return "RapidML, Project Version: 1.0.2"
 
 
 @app.route('/query', methods=['GET', 'POST'])

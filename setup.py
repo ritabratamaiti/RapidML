@@ -8,7 +8,7 @@ Created on Sun Jun 10 11:23:02 2018
 from setuptools import setup
 
 setup(name='RapidML',
-      version='1.0.1',
+      version='1.0.2',
       description='RapidML is your Smart Machine Learning assistant that not only automates the creation of machine learning models but also enables you to easily deploy the models to the cloud. Find the documentation at: https://ritabratamaiti.github.io/RapidML',
       url='https://github.com/ritabratamaiti/RapidML',
       long_description = '''

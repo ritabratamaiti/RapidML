@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-docs/* linguist-vendored
+
 *.html linguist-language=Python
-=======
-docs/_build/html/* linguist-vendored
->>>>>>> 15c01b921ec0a77516b810e8d31d84cd65899ee5
+

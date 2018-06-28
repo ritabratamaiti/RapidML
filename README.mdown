@@ -7,6 +7,10 @@ Getting started is as easy as: `pip install RapidML`
 
 Read RapidML documentation here: https://ritabratamaiti.github.io/RapidML
 
+<p align="center">
+<img src="ezgif.com-gif-maker.gif">
+</p>
+
 What is **RapidML**?
 
 Well, RapidML is your Smart Machine Learning assistant that not only

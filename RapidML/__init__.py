@@ -516,7 +516,7 @@ if __name__ == '__main__':
 
 def rapid_classifier_arr(X,
                          Y,
-                         model=TPOTRegressor(
+                         model=TPOTClassifier(
                              generations=5, population_size=50, verbosity=2),
                          name="RapidML_Files"):
 

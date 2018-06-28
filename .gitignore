@@ -1,4 +1,4 @@
 # Linguist
 
-RapidML/docs/build/html/* linguist-vendored
-RapidML/docs/_build/html/* linguist-vendored
+/docs/build/html/* linguist-vendored
+/docs/_build/html/* linguist-vendored

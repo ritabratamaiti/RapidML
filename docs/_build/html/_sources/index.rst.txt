@@ -1,4 +1,4 @@
-.. RapidML documentation master file, created by
+.. github repository.. RapidML documentation master file, created by
    sphinx-quickstart on Thu Jun 21 17:36:50 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -11,8 +11,9 @@ Welcome to RapidML's documentation!
 
 Getting started is as easy as ``pip install RapidML``
 
+GitHub Repository: https://github.com/ritabratamaiti/RapidML
 
-.. figure:: ezgif.com-gif-maker.gif
+.. figure:: demovid.gif
 
 What is **RapidML**?
 

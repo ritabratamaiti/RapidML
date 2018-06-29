@@ -8,7 +8,7 @@ Getting started is as easy as: `pip install RapidML`
 Read RapidML documentation here: https://ritabratamaiti.github.io/RapidML
 
 <p align="center">
-<img src="ezgif.com-gif-maker.gif">
+<img src="demovid.gif">
 </p>
 
 What is **RapidML**?

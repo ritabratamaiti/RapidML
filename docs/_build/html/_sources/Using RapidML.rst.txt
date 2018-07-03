@@ -45,7 +45,7 @@ RapidML in Action
 RapidML has a wide variety of application, ranging from the field of medicine to scientific predictions in statistics, like a prediction of radiation emissions or meteorological prediction (weather prediction) and even predicting stocks prices. 
 RapidML is already being used in the development of a Machine Learning Web API  that is utilized in an android application for ASD detection in adult patients. 
 
-Find this project here: https://github.com/ritabratamaiti/ASD_Detect. `This project was developed to showcase RapidML's use cases, and shouldn't be use for making diagnosis without clinical trials, and permission of the author`.
+Find this project here: https://github.com/ritabratamaiti/Autism-Detection-API. `This project was developed to showcase RapidML's use cases, and shouldn't be use for making diagnosis without clinical trials, and permission of the author`.
 
 *****************
 RapidML with code

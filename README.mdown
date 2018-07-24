@@ -1,7 +1,7 @@
 Welcome to RapidML!
 ===================================
 <p align="center">
-<img src="https://img.shields.io/badge/Used By-445 Projects (PyPI Data)-blue.svg">
+<img src="https://img.shields.io/badge/Used By-445 Projects (PyPI Data)-blue.svg?link=https://pypi.org/project/RapidML/&link=https://pypi.org/project/RapidML/">
 </p>
 
 Getting started is as easy as: ``pip install RapidML``

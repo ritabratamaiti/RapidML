@@ -3,7 +3,8 @@ Welcome to RapidML!
 <p align="center">
 <img src="https://img.shields.io/badge/Used By-445 Projects (PyPI Data)-blue.svg">
 </p>
-Getting started is as easy as: `pip install RapidML`
+
+Getting started is as easy as: ``pip install RapidML``
 <p align="center">
 <img src="logo.png">
 </p>
